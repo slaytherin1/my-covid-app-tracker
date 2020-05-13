@@ -1,4 +1,4 @@
-# vue_covid_api
+# vue_covid_api_tracker
 
 ## Project setup
 ```
