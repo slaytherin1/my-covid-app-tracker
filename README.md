@@ -1,7 +1,5 @@
 # vue_covid_api_tracker 
-```
-Live site at netlify: https://my-covid-api-app.netlify.app/
-```
+[Live Demo: https://my-covid-api-app.netlify.app/](https://my-covid-api-app.netlify.app/)
 
 ## Project setup
 ```
