@@ -97,14 +97,16 @@ export default {
       if(this.input == '' || this.input == null) {
         this.input = 'philippines'
       }
+      // Add comma function
+      let addComma = new Intl.NumberFormat()
       const res = await axios.get(`https://corona.lmao.ninja/v2/countries/${this.input.toLowerCase().trim()}`)
           // console.log(res.data)
           this.country = res.data.country
           this.flag = res.data.countryInfo.flag
-          this.cases = res.data.cases
+          this.cases = addComma.format(this.cases = res.data.cases)
           this.continent = res.data.continent
           this.deaths = res.data.deaths
-          this.recovered = res.data.recovered
+          this.recovered = addComma.format(this.recovered = res.data.recovered)
           this.todayCases = res.data.todayCases
           this.todayDeaths = res.data.todayDeaths
           let lat = res.data.countryInfo.lat
