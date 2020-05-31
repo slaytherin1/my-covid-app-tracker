@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import 'leaflet/dist/leaflet.css'
 import { Icon } from 'leaflet';
+import router from './router'
 
 delete Icon.Default.prototype._getIconUrl;
 Icon.Default.mergeOptions({
@@ -13,5 +14,6 @@ Icon.Default.mergeOptions({
 Vue.config.productionTip = false
 
 new Vue({
+  router,
   render: h => h(App),
 }).$mount('#app')
