@@ -31,6 +31,9 @@
         <div class="flex-items">
             Death Today: {{ todayDeaths }}
         </div>
+        <div class="flex-items">
+            Active Cases: {{ ActivteCases }}
+        </div>
     </div>
     <!-- END OF TRACKER -->
 
@@ -77,6 +80,7 @@ export default {
       recovered: '',
       todayCases: '',
       todayDeaths: '',
+      ActivteCases: '',
 
     //   Leaflet chart data
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -112,6 +116,15 @@ export default {
           this.center = [lat,long]
           this.markerLatLng = [lat, long]
 
+        // GEt active cases
+        let d = parseInt(res.data.deaths)
+        let r = parseInt(res.data.recovered)
+        let c = parseInt(res.data.cases)
+        let results = d + r
+        this.ActivteCases = addComma.format(this.ActivteCases = c - results)
+
+
+
     },
     // Leaflet Method
     zoomUpdated (zoom) {
@@ -123,7 +136,8 @@ export default {
     boundsUpdated (bounds) {
       this.bounds = bounds;
     }
-  }
+  },
+
 }
 </script>
 
@@ -149,7 +163,7 @@ export default {
 }
 
 .flex-items {
-    font-size: 20px;
+    font-size: 15px;
     flex-basis: 0px;
     min-height: 10px;
     min-width: 100px;
@@ -158,6 +172,12 @@ export default {
 }
 
 form {
-    min-width: 150px;
+    min-width: 120px;
+}
+
+@media screen and (max-width: 992px) {
+  .flex {
+    display: block;
+  }
 }
 </style>
